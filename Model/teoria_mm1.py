@@ -30,14 +30,14 @@ class MetricasTeoricas:
 
 
 class TeoriaMM1:
-    """Clase para calcular y validar las métricas teóricas de un sistema M/M/1[cite: 1, 2]."""
+    """Clase para calcular y validar las métricas teóricas de un sistema M/M/1"""
 
     def __init__(self, lambda_param: float, mu_param: float):
         """
         Inicializa las tasas del sistema.
         
-        :param lambda_param: Tasa promedio de llegada de clientes (lambda).
-        :param mu_param: Tasa promedio de servicio del servidor (mu)[cite: 2].
+        :param lambda_param: Tasa promedio de llegada de clientes (lambda)
+        :param mu_param: Tasa promedio de servicio del servidor (mu)
         """
         if lambda_param <= 0 or mu_param <= 0:
             raise ValueError("Las tasas lambda y mu deben ser mayores que cero.")
@@ -55,26 +55,26 @@ class TeoriaMM1:
 
     def calcular_utilizacion(self) -> float:
         """
-        Calcula la utilización del servidor: rho = lambda / mu[cite: 2].
+        Calcula la utilización del servidor: rho = lambda / mu
         """
         return self.lambda_param / self.mu_param
 
     def calcular_metricas(self) -> MetricasTeoricas:
         """
-        Calcula las medidas teóricas del sistema M/M/1[cite: 2].
+        Calcula las medidas teóricas del sistema M/M/1
         
-        L = lambda / (mu - lambda)[cite: 2]
-        Lq = lambda^2 / (mu * (mu - lambda))[cite: 2]
-        W = 1 / (mu - lambda)[cite: 2]
-        Wq = lambda / (mu * (mu - lambda))[cite: 2]
+        L = lambda / (mu - lambda)
+        Lq = lambda^2 / (mu * (mu - lambda))
+        W = 1 / (mu - lambda)
+        Wq = lambda / (mu * (mu - lambda))
         
-        :return: Objeto MetricasTeoricas con los resultados.
-        :raises ValueError: Si el sistema no es estable (lambda >= mu)[cite: 3].
+        :return: Objeto MetricasTeoricas con los resultados
+        :raises ValueError: Si el sistema no es estable (lambda >= mu)
         """
         if not self.es_estable():
             raise ValueError(
                 f"El sistema no es estable (lambda={self.lambda_param} >= mu={self.mu_param}). "
-                "La cola crecería indefinidamente[cite: 3]."
+                "La cola crecería indefinidamente"
             )
 
         lam = self.lambda_param
@@ -99,8 +99,8 @@ class TeoriaMM1:
 
 def obtener_metricas_teoricas(lambda_param: float, mu_param: float) -> Union[Dict[str, float], None]:
     """
-    Función de conveniencia para el controlador o fábrica de escenarios[cite: 4].
-    Calcula y retorna un diccionario con los resultados teóricos.
+    Función de conveniencia para el controlador o fábrica de escenarios
+    Calcula y retorna un diccionario con los resultados teóricos
     """
     try:
         modelo = TeoriaMM1(lambda_param, mu_param)
@@ -114,9 +114,9 @@ def obtener_metricas_teoricas(lambda_param: float, mu_param: float) -> Union[Dic
 # Bloque para pruebas rápidas directas del módulo
 if __name__ == "__main__":
     escenarios = [
-        {"nombre": "Escenario 1 (Estable)", "lambda": 2.0, "mu": 3.0},[cite: 4]
-        {"nombre": "Escenario 2 (Mayor utilización)", "lambda": 2.5, "mu": 3.0},[cite: 4]
-        {"nombre": "Escenario 3 (Cerca de saturación)", "lambda": 2.9, "mu": 3.0},[cite: 4]
+        {"nombre": "Escenario 1 (Estable)", "lambda": 2.0, "mu": 3.0},
+        {"nombre": "Escenario 2 (Mayor utilización)", "lambda": 2.5, "mu": 3.0},
+        {"nombre": "Escenario 3 (Cerca de saturación)", "lambda": 2.9, "mu": 3.0},
         {"nombre": "Escenario Inestable", "lambda": 3.5, "mu": 3.0},
     ]
 
