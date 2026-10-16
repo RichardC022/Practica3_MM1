@@ -33,23 +33,32 @@ class VistaMM1:
     # --------------------------------------------------------
     def mostrar_tabla_comparativa(self, nombre, teorico, simulado):
         print("\n--- Resultados del escenario:", nombre, "---")
-        print("{:<20} {:<15} {:<15}".format("Metrica", "Teorico", "Simulado"))
-        print("-" * 52)
+        print("{:<20} {:<15} {:<15} {:<10}".format(
+            "Metrica", "Teorico", "Simulado", "Error %"))
+        print("-" * 62)
 
-        print("{:<20} {:<15.4f} {:<15}".format(
-            "Rho", teorico["rho"], "-"))
-        print("{:<20} {:<15.4f} {:<15}".format(
-            "L  (sistema)", teorico["L"], "-"))
-        print("{:<20} {:<15.4f} {:<15.4f}".format(
-            "Lq (cola)", teorico["Lq"], simulado["cola_promedio"]))
-        print("{:<20} {:<15.4f} {:<15.4f}".format(
-            "W  (sistema)", teorico["W"], simulado["sistema_promedio"]))
-        print("{:<20} {:<15.4f} {:<15.4f}".format(
-            "Wq (cola)", teorico["Wq"], simulado["espera_promedio"]))
-        print("-" * 52)
-        print("Total de clientes simulados:", simulado["total_clientes"])
+        def fila(etiqueta, teo, sim):
+            error = 100.0 * (sim - teo) / teo if teo else 0.0
+            print("{:<20} {:<15.4f} {:<15.4f} {:+9.1f}%".format(
+                etiqueta, teo, sim, error))
+
+        fila("Rho", teorico["rho"], simulado["rho_simulado"])
+        fila("L  (sistema)", teorico["L"], simulado["l_promedio"])
+        fila("Lq (cola)", teorico["Lq"], simulado["cola_promedio"])
+        fila("W  (sistema)", teorico["W"], simulado["sistema_promedio"])
+        fila("Wq (cola)", teorico["Wq"], simulado["espera_promedio"])
+        print("-" * 62)
+        print("L = Lq + rho (teoria): {:.4f} = {:.4f} + {:.4f}".format(
+            teorico["L"], teorico["Lq"], teorico["rho"]))
+        print("L = Lq + rho (simula): {:.4f} = {:.4f} + {:.4f}".format(
+            simulado["l_promedio"], simulado["cola_promedio"], simulado["rho_simulado"]))
+        print("Replicas promediadas:", simulado.get("repeticiones", 1))
+        print("Total de clientes simulados (promedio por replica):",
+              round(simulado["total_clientes"]))
         print("Tiempo promedio de espera simulado:", round(simulado["espera_promedio"], 4))
         print("Tamanio promedio de cola simulado:", round(simulado["cola_promedio"], 4))
+        print("Tamano promedio de clientes en el sistema simulado:",
+              round(simulado["l_promedio"], 4))
 
     # --------------------------------------------------------
     # Graficas de cola y tiempos de espera en una sola ventana
