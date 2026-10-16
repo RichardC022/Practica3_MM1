@@ -1,5 +1,5 @@
 """
-Módulo encargado del cálculo de las métricas teóricas para un modelo de colas M/M/1.
+Modulo encargado del calculo de las metricas teoricas para un modelo de colas M/M/1.
 """
 
 from dataclasses import dataclass
@@ -17,7 +17,7 @@ class MetricasTeoricas:
     Wq: float
 
     def a_dict(self) -> Dict[str, float]:
-        """Convierte las métricas a un diccionario para facilitar su uso en vistas o tablas."""
+        """Convierte las metricas a un diccionario para facilitar su uso en vistas o tablas."""
         return {
             "lambda": self.lambda_param,
             "mu": self.mu_param,
@@ -30,7 +30,7 @@ class MetricasTeoricas:
 
 
 class TeoriaMM1:
-    """Clase para calcular y validar las métricas teóricas de un sistema M/M/1"""
+    """Clase para calcular y validar las metricas teoricas de un sistema M/M/1"""
 
     def __init__(self, lambda_param: float, mu_param: float):
         if lambda_param <= 0 or mu_param <= 0:
@@ -86,7 +86,7 @@ def obtener_metricas_teoricas(lambda_param: float, mu_param: float) -> Union[Dic
         return None
 
 
-# Bloque para pruebas rápidas directas del módulo
+# Bloque para pruebas rapidas directas del modulo
 if __name__ == "__main__":
     escenarios = [
         {"nombre": "Escenario 1 (Estable)", "lambda": 2.0, "mu": 3.0},
@@ -95,7 +95,7 @@ if __name__ == "__main__":
         {"nombre": "Escenario Inestable", "lambda": 3.5, "mu": 3.0},
     ]
 
-    print("=== PRUEBA DE CÁLCULOS TEÓRICOS M/M/1 ===\n")
+    print("=== PRUEBA DE CALCULOS TEORICOS M/M/1 ===\n")
     for esc in escenarios:
         print(f"--- {esc['nombre']} ---")
         try:
