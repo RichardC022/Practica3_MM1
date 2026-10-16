@@ -42,6 +42,8 @@ class TeoriaMM1:
     def es_estable(self) -> bool:
         return self.lambda_param < self.mu_param
 
+    verificar_estabilidad = es_estable
+
     def calcular_utilizacion(self) -> float:
         return self.lambda_param / self.mu_param
 
@@ -70,6 +72,8 @@ class TeoriaMM1:
             W=W,
             Wq=Wq
         )
+
+    obtener_todas_las_metricas = calcular_metricas
 
 
 def obtener_metricas_teoricas(lambda_param: float, mu_param: float) -> Union[Dict[str, float], None]:
