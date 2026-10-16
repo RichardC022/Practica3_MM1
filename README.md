@@ -62,3 +62,8 @@ Practica3_MM1/
 - **Documentación de la API:** sin API HTTP; interfaces en `TeoriaMM1`, `SimulacionMM1`, `FactoryEscenarios` y `VistaMM1`.
 - **Contribución:** fork → rama `feature/...` → Pull Request a `main`.
 - **Licencia:** MIT (agregar archivo `LICENSE` si aún no existe).
+
+
+## 8. Declaración de uso de IA
+
+En la elaboración de este proyecto se emplearon herramientas de inteligencia artificial generativa como apoyo para la revisión de código, depuración de errores sintácticos y optimización de documentación. Todo el diseño, lógica del sistema, validación de resultados y decisiones finales fueron realizados de manera autónoma e independiente por los autores.
