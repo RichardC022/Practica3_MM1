@@ -67,3 +67,45 @@ Practica3_MM1/
 ## 8. Declaración de uso de IA
 
 En la elaboración de este proyecto se emplearon herramientas de inteligencia artificial generativa como apoyo para la revisión de código, depuración de errores sintácticos y optimización de documentación. Todo el diseño, lógica del sistema, validación de resultados y decisiones finales fueron realizados de manera autónoma e independiente por los autores.
+
+### 1. Prompts para explicación de conceptos teóricos
+
+**Prompt usado (Integrante 1 — Modelo teórico):**
+> "Explícame las fórmulas del modelo M/M/1 y cómo se calculan L, Lq, W y Wq."
+
+**Prompt usado (Integrante 2 — Simulación):**
+> "Dame un ejemplo básico de simulación M/M/1 con SimPy usando simpy.Resource."
+
+**Prompt usado (Integrante 4 — Patrón de diseño):**
+> "Explícame el patrón Factory Method con un ejemplo simple en Python y cómo aplicarlo en MVC."
+
+---
+
+###  2. Prompts para solución de errores
+
+**Prompt usado (Integrante 2 — SimPy):**
+> "Me sale este error en SimPy: 'TypeError: 'generator' object is not callable'. ¿Cómo lo soluciono?"
+
+**Prompt usado (Integrante 3 — Matplotlib):**
+> "Mi gráfica de matplotlib no se muestra, solo sale el mensaje 'Figure size 640x480 with 0 Axes'. ¿Qué está mal?"
+
+**Prompt usado (Integrante 4 — Importaciones):**
+> "Me sale 'ModuleNotFoundError: No module named controller'. Estoy corriendo main.py desde la raíz del proyecto. ¿Cómo lo arreglo?"
+
+**Prompt usado (Integrante 4 — Lógica del controlador):**
+> "Mi bucle while en el controlador no termina cuando el usuario elige 0. ¿Por qué pasa?"
+
+---
+
+###  3. Prompts para aclarar sintaxis de librerías
+
+**Prompt usado (Integrante 2 — SimPy):**
+> "¿Cuál es la diferencia entre simpy.Resource y simpy.Store en SimPy?"
+
+**Prompt usado (Integrante 3 — Matplotlib):**
+> "Cómo graficar una lista de números con matplotlib y cómo formatear una tabla en consola en Python."
+
+**Prompt usado (Integrante 3 — Formato de tablas):**
+> "Cómo usar '{:<20}'.format() para alinear texto a la izquierda en Python."
+=======
+En la elaboración de este proyecto se emplearon herramientas de inteligencia artificial generativa como apoyo para la revisión de código, depuración de errores sintácticos y optimización de documentación. Todo el diseño, lógica del sistema, validación de resultados y decisiones finales fueron realizados de manera autónoma e independiente por los autores.
