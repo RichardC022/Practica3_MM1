@@ -8,10 +8,10 @@
 # - Muestra resultados y graficas (vista).
 # ------------------------------------------------------------
 
-from model.teoria_mm1 import TeoriaMM1
-from model.simulacion_mm1 import SimulacionMM1
-from view.vista_mm1 import VistaMM1
-from controller.factory_escenarios import FactoryEscenarios
+from Model.teoria_mm1 import TeoriaMM1
+from Model.simulacion_mm1 import SimulacionMM1
+from View.vista_mm1 import VistaMM1
+from Controller.factory_escenarios import FactoryEscenarios
 
 
 class ControladorMM1:
@@ -53,12 +53,11 @@ class ControladorMM1:
 
             # 3) Mostramos la tabla comparativa
             self.vista.mostrar_tabla_comparativa(
-                datos["nombre"], metricas_teoricas, metricas_simuladas
+                datos["nombre"], metricas_teoricas.a_dict() if hasattr(metricas_teoricas, 'a_dict') else metricas_teoricas, metricas_simuladas
             )
 
-            # 4) Mostramos las graficas
-            self.vista.graficar_cola(sim.tamanios_cola)
-            self.vista.graficar_tiempos_espera(sim.tiempos_espera)
+            # 4) Mostramos las graficas en una sola ventana
+            self.vista.graficar_resultados(sim.tamanios_cola, sim.tiempos_espera)
 
 
 if __name__ == "__main__":
