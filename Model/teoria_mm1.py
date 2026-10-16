@@ -33,12 +33,6 @@ class TeoriaMM1:
     """Clase para calcular y validar las métricas teóricas de un sistema M/M/1"""
 
     def __init__(self, lambda_param: float, mu_param: float):
-        """
-        Inicializa las tasas del sistema.
-        
-        :param lambda_param: Tasa promedio de llegada de clientes (lambda)
-        :param mu_param: Tasa promedio de servicio del servidor (mu)
-        """
         if lambda_param <= 0 or mu_param <= 0:
             raise ValueError("Las tasas lambda y mu deben ser mayores que cero.")
         
@@ -46,31 +40,14 @@ class TeoriaMM1:
         self.mu_param = float(mu_param)
 
     def es_estable(self) -> bool:
-        """
-        Verifica si el sistema es estable (lambda < mu).
-        
-        :return: True si el sistema es estable, False en caso contrario.
-        """
         return self.lambda_param < self.mu_param
 
+    verificar_estabilidad = es_estable
+
     def calcular_utilizacion(self) -> float:
-        """
-        Calcula la utilización del servidor: rho = lambda / mu
-        """
         return self.lambda_param / self.mu_param
 
     def calcular_metricas(self) -> MetricasTeoricas:
-        """
-        Calcula las medidas teóricas del sistema M/M/1
-        
-        L = lambda / (mu - lambda)
-        Lq = lambda^2 / (mu * (mu - lambda))
-        W = 1 / (mu - lambda)
-        Wq = lambda / (mu * (mu - lambda))
-        
-        :return: Objeto MetricasTeoricas con los resultados
-        :raises ValueError: Si el sistema no es estable (lambda >= mu)
-        """
         if not self.es_estable():
             raise ValueError(
                 f"El sistema no es estable (lambda={self.lambda_param} >= mu={self.mu_param}). "
@@ -96,12 +73,10 @@ class TeoriaMM1:
             Wq=Wq
         )
 
+    obtener_todas_las_metricas = calcular_metricas
+
 
 def obtener_metricas_teoricas(lambda_param: float, mu_param: float) -> Union[Dict[str, float], None]:
-    """
-    Función de conveniencia para el controlador o fábrica de escenarios
-    Calcula y retorna un diccionario con los resultados teóricos
-    """
     try:
         modelo = TeoriaMM1(lambda_param, mu_param)
         metricas = modelo.calcular_metricas()

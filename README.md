@@ -107,3 +107,5 @@ En la elaboración de este proyecto se emplearon herramientas de inteligencia ar
 
 **Prompt usado (Integrante 3 — Formato de tablas):**
 > "Cómo usar '{:<20}'.format() para alinear texto a la izquierda en Python."
+=======
+En la elaboración de este proyecto se emplearon herramientas de inteligencia artificial generativa como apoyo para la revisión de código, depuración de errores sintácticos y optimización de documentación. Todo el diseño, lógica del sistema, validación de resultados y decisiones finales fueron realizados de manera autónoma e independiente por los autores.
