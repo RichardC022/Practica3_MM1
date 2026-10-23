@@ -1,16 +1,15 @@
-package Practica3_MM1.APE_4.model;
+package model;
 
 /**
- * Estados epidemiológicos posibles de un individuo dentro del modelo SIR.
+ * Representa los posibles estados epidemiológicos de un individuo en el modelo SIR.
  */
 public enum Estado {
-
-    /** El individuo puede contraer la enfermedad. */
+    /** Individuo sano pero propenso a contraer la enfermedad. */
     SUSCEPTIBLE,
-
-    /** El individuo está infectado y puede transmitir la enfermedad. */
+    
+    /** Individuo infectado capaz de contagiar la enfermedad a un susceptible. */
     INFECTADO,
-
-    /** El individuo ya superó la enfermedad y no vuelve a ser susceptible. */
+    
+    /** Individuo recuperado con inmunidad que ya no contagia ni puede ser infectado. */
     RECUPERADO
 }
